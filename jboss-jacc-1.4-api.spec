@@ -4,9 +4,9 @@
 
 Name:             jboss-jacc-1.4-api
 Version:          1.0.2
-Release:          6.0%{?dist}
+Release:          8.1
 Summary:          JBoss JACC 1.4 API
-
+Group:		  Development/Java
 License:          CDDL or GPLv2 with exceptions
 URL:              http://www.jboss.org
 
@@ -47,33 +47,15 @@ This package contains the API documentation for %{name}.
 %setup -q -n %{name}
 
 %build
-mvn-rpmbuild install javadoc:aggregate
+%mvn_build
 
 %install
-install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
-install -d -m 755 $RPM_BUILD_ROOT%{_mavenpomdir}
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}
+%mvn_install
 
-# JAR
-install -pm 644 target/jboss-jacc-api_1.4_spec-%{namedversion}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
-
-# POM
-install -pm 644 pom.xml $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
-
-# DEPMAP
-%add_maven_depmap JPP-%{name}.pom %{name}.jar
-
-# APIDOCS
-cp -rp target/site/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-
-%files
-%{_javadir}/%{name}.jar
-%{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
+%files -f .mfiles
 %doc README LICENSE
 
-%files javadoc
-%{_javadocdir}/%{name}
+%files javadoc -f .mfiles-javadoc
 %doc LICENSE README
 
 %changelog
