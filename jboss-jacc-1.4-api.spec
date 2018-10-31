@@ -4,7 +4,7 @@
 
 Name:             jboss-jacc-1.4-api
 Version:          1.0.2
-Release:          8.2
+Release:          8.3
 Summary:          JBoss JACC 1.4 API
 Group:		  Development/Java
 License:          CDDL or GPLv2 with exceptions
