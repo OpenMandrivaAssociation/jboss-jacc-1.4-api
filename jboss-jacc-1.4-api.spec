@@ -8,7 +8,7 @@ Release:          8.3
 Summary:          JBoss JACC 1.4 API
 Group:		  Development/Java
 License:          CDDL or GPLv2 with exceptions
-URL:              http://www.jboss.org
+URL:              https://www.jboss.org
 
 # git clone git://github.com/jboss/jboss-jacc-api_spec.git jboss-jacc-1.4-api
 # cd jboss-jacc-1.4-api/ && git archive --format=tar --prefix=jboss-jacc-1.4-api/ jboss-jacc-api_1.4_spec-1.0.2.Final | xz > jboss-jacc-1.4-api-1.0.2.Final.tar.xz
